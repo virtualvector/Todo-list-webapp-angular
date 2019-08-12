@@ -1,0 +1,20 @@
+ <!--
+<li *ngFor="let item  of todoArray">
+        {{ item.id }}  {{ item.title }}  {{ item.content }}  {{ item.status }}
+      </li>
+
+     
+
+        <li class="list-group-item list-group-item-success">{{ item.id }}  </li>
+            <li class="list-group-item list-group-item-info"> {{ item.title }}</li>
+            <li class="list-group-item list-group-item-warning"> {{ item.content }}  </li>
+            <li class="list-group-item list-group-item-danger">{{ item.status }}</li>
+
+             <li *ngIf="this.isClicked? (class='list-group-item list-group-item-info'):() ">  {{ item.id }}  {{ item.title }}  {{ item.content }}  {{ item.status }}</li>
+      -->
+
+
+      <ul class="list-group"  *ngFor="let item  of todoArray">
+           
+            <li [ngClass]="{'list-group-item list-group-item-info': item.status!='completed', 'list-group-item list-group-item-danger': item.status=='completed'}" (click)="stateChange(item.id)">{{ item.id }}  {{ item.title }}  {{ item.content }}  {{ item.status }}</li>
+          </ul>
